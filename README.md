@@ -5,5 +5,8 @@ I made this base as per request from a fellow friend. The base is very easy to u
 # How to build?
  - Open the directory in IntelliJ or Eclipse and build it... duh.
 
+# What are the in.jar and out.jar files?
+These are added in the project as a sample, which you can test your transformers on.
+
 # Still have more questions?
-  Join my discord server: https://discord.gg/5cK6GZnTGd
+Join my discord server: https://discord.gg/5cK6GZnTGd
