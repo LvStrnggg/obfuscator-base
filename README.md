@@ -13,4 +13,4 @@ Join my discord server: https://discord.gg/5cK6GZnTGd
 
 # Resources
  - Java opcode list with stack changes and descriptions: https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html
- - Feel like looking at other people's code? Obfuscator list by 3000IQ: github.com/3000IQPlay/obfuscator-list
+ - Feel like looking at other people's code? Obfuscator list by 3000IQ: https://github.com/3000IQPlay/obfuscator-list
