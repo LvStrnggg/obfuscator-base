@@ -30,7 +30,13 @@ public class ExampleTransformer extends Transformer {
                             continue; // We don't want to mess up arrays, so let's not do that with this line
 
                         // Set the instruction to a new LDC instruction with the value of the previous instruction
-                        method.instructions.set(intPush, new LdcInsnNode(intPush.operand));
+                        method.instructions.insertBefore(intPush, new LdcInsnNode(intPush.operand));
+                        method.instructions.remove(intPush);
+
+                        // insertBefore(AbstractInsnNode, ...) inserts either an instruction or a whole InsnList before said instruction
+                        // insert(AbstractInsnNode) inserts an instruction at the start of the code
+                        // insert(AbstractInsnNode, ...) inserts an instruction/InsnList after said instruction
+                        // add(...) adds an instruction/InsnList at the end of the instruction list
                     }
                 }
             }
