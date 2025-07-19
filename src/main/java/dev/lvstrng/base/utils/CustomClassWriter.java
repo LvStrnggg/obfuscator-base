@@ -1,10 +1,12 @@
 package dev.lvstrng.base.utils;
 
 import dev.lvstrng.base.DependencyAnalyzer;
+import dev.lvstrng.base.jar.ClassPool;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.ClassNode;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -81,7 +83,9 @@ public class CustomClassWriter extends ClassWriter {
             if (parent.name.equals(current.superName)) return true;
             if (current.interfaces != null && current.interfaces.contains(parent.name)) return true;
 
-            current = DependencyAnalyzer.libraryClasses.get(current.superName);
+            HashMap<String, ClassNode> classes = DependencyAnalyzer.libraryClasses;
+            ClassPool.getClasses().forEach(c -> classes.put(c.name, c));
+            current = classes.get(current.superName);
         }
 
         return false;
