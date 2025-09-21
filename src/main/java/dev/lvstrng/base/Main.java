@@ -1,16 +1,15 @@
 package dev.lvstrng.base;
 
-import dev.lvstrng.base.transform.impl.ExampleTransformer;
-
-import java.io.File;
+import dev.lvstrng.base.transform.impl.optimize.DeadCodeCleanTransformer;
+import dev.lvstrng.base.workspace.Workspace;
 
 public class Main {
     public static void main(String[] args) {
-        DependencyAnalyzer.analyzeDependencies(new File("libs"));
-        var obfuscator = new Obfuscator("in.jar", true);
-        obfuscator.read();
-
-        obfuscator.obfuscate(new ExampleTransformer());
-        obfuscator.save("out.jar");
+        var workspace = new Workspace("in.jar", "libs/", true);
+        workspace.readInput();
+        workspace.transform(
+                new DeadCodeCleanTransformer()
+        );
+        workspace.exportJar("out.jar");
     }
 }

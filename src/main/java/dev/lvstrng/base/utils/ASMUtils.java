@@ -1,10 +1,7 @@
 package dev.lvstrng.base.utils;
 
 import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.tree.AbstractInsnNode;
-import org.objectweb.asm.tree.InsnNode;
-import org.objectweb.asm.tree.IntInsnNode;
-import org.objectweb.asm.tree.LdcInsnNode;
+import org.objectweb.asm.tree.*;
 
 public class ASMUtils implements Opcodes {
     public static AbstractInsnNode pushString(String value) {
